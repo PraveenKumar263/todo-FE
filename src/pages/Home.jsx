@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import todoServices from '../services/todoServices';
+import { clearForm, selectNewTodo, selectStatus, setNewTodo, setStatus } from '../features/todoSlice';
+import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
-  const [newTodo, setNewTodo] = useState('');
-  const [status, setStatus] = useState(false);
-
+  const newTodo = useSelector(selectNewTodo);
+  const status = useSelector(selectStatus);
   const todos = useLoaderData();
-
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   
   const handleAddTodo = async (e) => {
     e.preventDefault();
-    console.log("Add Todo")
+    // console.log("Add Todo")
 
     // make a POST request to the server
     todoServices.postTodo({
@@ -21,8 +22,9 @@ const Home = () => {
     })
       .then(response => {
         alert('Todo added successfully');
-        setNewTodo('');
-        setStatus(false);
+
+        // clear form
+        clearForm();
 
         // reload the todos
         navigate('/');
@@ -47,11 +49,11 @@ const Home = () => {
       type="text"
       placeholder="Add Todo..."
       value={newTodo}
-      onChange={(e) => setNewTodo(e.target.value)}
+      onChange={(e) => dispatch(setNewTodo(e.target.value))}
       />
       <select
         value={status}
-        onChange={(e) => setStatus(e.target.value)}
+        onChange={(e) => dispatch(setStatus(e.target.value))}
       >
         <option>False</option>
         <option>True</option>
