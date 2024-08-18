@@ -4,6 +4,7 @@ import axios from "axios";
 const baseURL = "https://todo-be-8wyk.onrender.com/api/v1";
 
 // Define the instance
+// Usage of instance to improve code reusability
 const instance = axios.create({
     baseURL: baseURL,
     timeout: 5000,
