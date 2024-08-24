@@ -28,12 +28,21 @@ const Todo = () => {
     }
   }
 
+  const handleEditClick = (todo) => {
+    dispatch(setNewTodo(todo.description));
+    dispatch(setStatus(todo.status));
+    dispatch(setIsEditing(true));
+    dispatch(setIsEditingId(todo._id));
+
+    navigate(`/edit-todo/${todo._id}`);
+  }
+
   return (
       <div>
             <h1>{todo.description}</h1>
           <p>Status: {todo.status ? 'Completed' : 'Incomplete'}</p>
           <p className="buttons">
-            <button>Edit</button>
+            <button onClick={() => handleEditClick(todo)}>Edit</button>
             <button onClick={() => handleDeleteClick(todo)}>Delete</button>
           </p>
     </div>

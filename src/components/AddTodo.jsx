@@ -66,6 +66,7 @@ const AddTodo = () => {
       placeholder="Add Todo..."
       value={newTodo}
       onChange={(e) => dispatch(setNewTodo(e.target.value))}
+      style={{ width: '500px' }}
       />
       <select
         value={status ? 'True' : 'False'}
