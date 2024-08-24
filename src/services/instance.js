@@ -7,7 +7,7 @@ const baseURL = "https://todo-be-8wyk.onrender.com/api/v1";
 // Usage of instance to improve code reusability
 const instance = axios.create({
     baseURL: baseURL,
-    timeout: 5000,
+    timeout: 10000,
     headers: { 
         "Content-Type": "application/json"
     },

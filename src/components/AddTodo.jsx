@@ -68,8 +68,8 @@ const AddTodo = () => {
       onChange={(e) => dispatch(setNewTodo(e.target.value))}
       />
       <select
-        value={status}
-        onChange={(e) => dispatch(setStatus(e.target.value))}
+        value={status ? 'True' : 'False'}
+        onChange={(e) => dispatch(setStatus(e.target.value === 'True'))}
       >
         <option>False</option>
         <option>True</option>
