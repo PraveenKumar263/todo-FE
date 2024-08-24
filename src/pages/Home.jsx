@@ -1,4 +1,3 @@
-import AddTodo from '../components/AddTodo';
 import ViewTodo from '../components/ViewTodo';
 
 const Home = () => {  
@@ -6,7 +5,6 @@ const Home = () => {
   return (
     <div>
       <ViewTodo />
-      <AddTodo />
     </div>
   )
 }
