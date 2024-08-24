@@ -10,6 +10,9 @@ const todoServices = {
     },
     putTodo: async (data, id) => {
         return await instance.put(`/todos/${id}`, data);
+    },
+    getTodo: async (id) => {
+        return await instance.get(`/todos/${id}`)
     }
 }
 
